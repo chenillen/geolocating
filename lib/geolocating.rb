@@ -1,49 +1,38 @@
+require 'net/http'
+require 'net/geoip'
+require 'yaml'
+
 module Geolocating
-  module ClassMethods
+  class TooManyQueriesError < StandardError; end
+  module Geocoders
+    # Error which is thrown in the event a geocoding error occurs.
+    class GeocodeError < StandardError; end
+
+    # -------------------------------------------------------------------------------------------
+    # Geocoder Base class -- every geocoder should inherit from this
+    # -------------------------------------------------------------------------------------------    
     
-  end
-  
-  module InstanceMethods
+    # The Geocoder base class which defines the interface to be used by all
+    # other geocoders.
     
-  end
-  
-  def self.included(receiver)
-    receiver.extend         ClassMethods
-    receiver.send :include, InstanceMethods
-  end
-  
-  module ActAsMapping
-    class GoogleGeoCoder
+    class Geocoder
       
     end
     
-    class IPGeoCoder
+    class GoogleGeocoder < Geocoder
+      def initialize(args)
+          
+      end
       
-    end
+      
+    end 
     
-    class AddrGeo < GoogleGeo
+    class MmaxGeocoder < Geocoder
       def initialize(args)
         
       end
       
       
     end
-    
-    class LatlngGeo < GoogleGeo
-      def initialize(args)
-        
-      end
-      
-      
-    end
-    
-    class IPGeo < IPGeo
-      def initialize(args)
-        
-      end
-      
-      
-    end
-    
   end
 end
