@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module Geolocating
   module ActAsGeolocating
     # Mix below class methods into ActiveRecord.
@@ -7,7 +9,10 @@ module Geolocating
 
     module ClassMethods
       def acts_as_geolocating
+        
       end
+      
+      
     end
     
     module SingletonMethods
